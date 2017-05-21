@@ -94,8 +94,8 @@ def rotate2(script='TEMP3D_default.mlx', axis='z', angle=0.0,
     else:  # custom axis
         axis_num = 3
         if custom_axis is None:
-            print('WARNING: a custom axis was selected, however',
-                  '"custom_axis" was not provided. Using default (Z).')
+            print(('WARNING: a custom axis was selected, however',
+                  '"custom_axis" was not provided. Using default (Z).'))
             custom_axis = [0.0, 0.0, 1.0]
     # Convert center point name into number
     if center_pt.lower() == 'origin':
@@ -105,9 +105,9 @@ def rotate2(script='TEMP3D_default.mlx', axis='z', angle=0.0,
     else:  # custom cente point
         center_pt_num = 2
         if custom_center_pt is None:
-            print('WARNING: a custom center point was selected, however',
+            print(('WARNING: a custom center point was selected, however',
                   '"custom_center_pt" was not provided. Using default',
-                  '(origin).')
+                  '(origin).'))
             custom_center_pt = [0.0, 0.0, 0.0]
     script_file = open(script, 'a')
     script_file.write('  <filter name="Transform: Rotate">\n' +
@@ -239,9 +239,9 @@ def scale2(script='TEMP3D_default.mlx', value=1.0,
     else:  # custom axis
         center_pt_num = 2
         if custom_center_pt is None:
-            print('WARNING: a custom center point was selected, however',
+            print(('WARNING: a custom center point was selected, however',
                   '"custom_center_pt" was not provided. Using default',
-                  '(origin).')
+                  '(origin).'))
             custom_center_pt = [0.0, 0.0, 0.0]
     script_file = open(script, 'a')
     script_file.write('  <filter name="Transform: Scale">\n' +

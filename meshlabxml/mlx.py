@@ -72,22 +72,22 @@ def handle_error(program_name, cmd, log=None):
     
     """
     
-    print('\nHouston, we have a problem.',
+    print(('\nHouston, we have a problem.',
           '\n%s did not finish sucessfully. Review the log' % program_name,
-          'file and the input file(s) to see what went wrong.')
-    print('%s command: "%s"' % (program_name, cmd))
+          'file and the input file(s) to see what went wrong.'))
+    print(('%s command: "%s"' % (program_name, cmd)))
     if log is not None:
-        print('log: "%s"' % log)
+        print(('log: "%s"' % log))
     print('Where do we go from here?')
-    print(' r  - retry running %s (probably after' % program_name,
-          'you\'ve fixed any problems with the input files)')
-    print(' c  - continue on with the script (probably after',
+    print((' r  - retry running %s (probably after' % program_name,
+          'you\'ve fixed any problems with the input files)'))
+    print((' c  - continue on with the script (probably after',
           'you\'ve manually re-run and generated the desired',
-          'output file(s)')
+          'output file(s)'))
     print(' x  - exit, keeping the TEMP3D files and log')
     print(' xd - exit, deleting the TEMP3D files and log')
     while True:
-        choice = input('Select r, c, x, or xd: ')
+        choice = eval(input('Select r, c, x, or xd: '))
         if choice not in ('r', 'c', 'x', 'xd'):
             print('Please enter a valid option.')
         else:
@@ -105,7 +105,7 @@ def handle_error(program_name, cmd, log=None):
         print('Continuing on ...')
         break_now = True
     elif choice == 'r':
-        print('Retrying %s cmd ...' % program_name)
+        print(('Retrying %s cmd ...' % program_name))
         break_now = False
     return break_now
 
@@ -230,7 +230,7 @@ def run(script='TEMP3D_default.mlx', log=None, ml_log=None,
     else:
         if print_meshlabserver_output:
             log_file = None
-            print('meshlabserver cmd = %s' % cmd)
+            print(('meshlabserver cmd = %s' % cmd))
             print('***START OF MESHLAB STDOUT & STDERR***')
         else:
             log_file = subprocess.DEVNULL
@@ -338,7 +338,7 @@ def find_texture_files(fbasename, log=None):
                     texture_files.append(os.path.basename(line.split('"')[1]))
                     break
     elif fext != 'stl':  # add other formats that don't support teture, e.g. xyz?
-        print('File extension %s is not currently supported' % fext)
+        print(('File extension %s is not currently supported' % fext))
         # TODO: raise exception here
     texture_files_unique = list(set(texture_files))
     if log is not None:
@@ -407,8 +407,8 @@ def default_output_mask(file_out, texture=True):
         else:
             output_mask = ' %s vn' % om_flag
     else:
-        print('Default output mask for file extension "%s"' % fext,
-              'is not currently supported')
+        print(('Default output mask for file extension "%s"' % fext,
+              'is not currently supported'))
     return output_mask
 
 

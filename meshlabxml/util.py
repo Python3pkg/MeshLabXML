@@ -52,7 +52,7 @@ def color_values(color):
             found = True
             break
     if not found:
-        print('Color name "%s" not found, using default (white)' % color)
+        print(('Color name "%s" not found, using default (white)' % color))
         red = 255
         green = 255
         blue = 255
@@ -69,9 +69,9 @@ def check_list(var, num_terms):
         for _ in range(1, num_terms):
             var.append(var[0])
     if len(var) != num_terms:
-        print(
+        print((
             '"%s" has the wrong number of terms; it needs %s. Exiting ...' %
-            (var, num_terms))
+            (var, num_terms)))
         sys.exit(1)
     return var
 

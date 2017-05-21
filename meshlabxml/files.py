@@ -84,9 +84,9 @@ def measure_aabb(fbasename=None, log=None, coord_system='CARTESIAN'):
     except UnboundLocalError:
         print('Error: aabb input file does not contain valid data. Exiting ...')
         sys.exit(1)
-    for key, value in aabb.items():
+    for key, value in list(aabb.items()):
         if log is None:
-            print('{:10} = {}'.format(key, value))
+            print(('{:10} = {}'.format(key, value)))
         else:
             log_file = open(log, 'a')
             log_file.write('{:10} = {}\n'.format(key, value))
@@ -333,11 +333,11 @@ def measure_dimension(fbasename=None, log=None, axis1=None, offset1=0.0,
     dimension = {'min': aabb['min'][axis_num], 'max': aabb['max'][axis_num],
                  'length': aabb['size'][axis_num], 'axis': axis}
     if log is None:
-        print('\nFor file "%s"' % fbasename)
-        print('Dimension parallel to %s with %s=%s & %s=%s:' % (axis, axis1, offset1,
-                                                                axis2, offset2))
-        print('  Min = %s, Max = %s, Total length = %s' % (dimension['min'],
-                                                           dimension['max'], dimension['length']))
+        print(('\nFor file "%s"' % fbasename))
+        print(('Dimension parallel to %s with %s=%s & %s=%s:' % (axis, axis1, offset1,
+                                                                axis2, offset2)))
+        print(('  Min = %s, Max = %s, Total length = %s' % (dimension['min'],
+                                                           dimension['max'], dimension['length'])))
     else:
         log_file = open(log, 'a')
         log_file.write('\nFor file "%s"\n' % fbasename)

@@ -24,8 +24,8 @@ def section(script='TEMP3D_default.mlx', axis='z', offset=0.0,
     else:  # custom axis
         axis_num = 3
         if custom_axis is None:
-            print('WARNING: a custom axis was selected, however',
-                  '"custom_axis" was not provided. Using default (Z).')
+            print(('WARNING: a custom axis was selected, however',
+                  '"custom_axis" was not provided. Using default (Z).'))
     if custom_axis is None:
         custom_axis = [0.0, 0.0, 1.0]
     script_file = open(script, 'a')
@@ -145,9 +145,9 @@ def parse_geometry(ml_log, log=None):
                 geometry['axis_momenta'] = [
                     util.to_float(val) for val in geometry['axis_momenta']]
                 break  # stop after we find the first match
-    for key, value in geometry.items():
+    for key, value in list(geometry.items()):
         if log is None:
-            print('{:27} = {}'.format(key, value))
+            print(('{:27} = {}'.format(key, value)))
         else:
             log_file = open(log, 'a')
             log_file.write('{:27} = {}\n'.format(key, value))
@@ -259,9 +259,9 @@ def parse_topology(ml_log, log=None):
                     topology['hole_num'] = 'undefined'
                 else:
                     topology['hole_num'] = int(topology['hole_num'])
-    for key, value in topology.items():
+    for key, value in list(topology.items()):
         if log is None:
-            print('{:16} = {}'.format(key, value))
+            print(('{:16} = {}'.format(key, value)))
         else:
             log_file = open(log, 'a')
             log_file.write('{:16} = {}\n'.format(key, value))

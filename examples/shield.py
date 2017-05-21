@@ -132,8 +132,8 @@ def main():
     # Run the script using meshlabserver and generate the model
     mlx.run(file_out="Cap's_shield.ply")
 
-    wait = input(
-        '\nPress ENTER to delete TEMP3D* files, or type "n" to keep them: ')
+    wait = eval(input(
+        '\nPress ENTER to delete TEMP3D* files, or type "n" to keep them: '))
     if wait == '':
         mlx.util.delete_all('TEMP3D*')
 

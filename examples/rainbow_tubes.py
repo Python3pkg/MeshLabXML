@@ -78,8 +78,8 @@ def main():
     mlx.end(script3)
     mlx.run(script=script3, file_out=final_output, file_in=input3)
 
-    wait = input(
-        '\nPress ENTER to delete TEMP3D* files, or type "n" to keep them: ')
+    wait = eval(input(
+        '\nPress ENTER to delete TEMP3D* files, or type "n" to keep them: '))
     if wait == '':
         mlx.util.delete_all('TEMP3D*')
 
